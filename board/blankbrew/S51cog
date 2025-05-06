@@ -1,0 +1,20 @@
+#!/bin/sh
+
+DAEMON="/usr/bin/cog"
+URL="http://localhost:8080/index.html"
+
+case "$1" in
+  start)
+    echo "Starting Cog browser..."
+    # strace -f -o cog.log $DAEMON --platform=drm --platform-params='renderer=gles' "$URL" &
+    ;;
+  stop)
+    echo "Stopping Cog..."
+    killall cog
+    ;;
+  *)
+    echo "Usage: $0 {start|stop}"
+    exit 1
+esac
+
+exit 0
