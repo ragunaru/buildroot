@@ -1,14 +1,14 @@
 #!/bin/sh
-export XDG_RUNTIME_DIR=/run/user/0
-export COG_PLATFORM=drm
-export WPE_BACKEND=libWPEBackend-drm.so
-export LD_LIBRARY_PATH=/usr/lib
-export COG_PLATFORM_DRM_RENDERER=gles
+
+# Set base cog parameters. I fucking hope these work.
+export COG_PLATFORM_NAME=drm
 
 # Create runtime directory with proper permissions
+export XDG_RUNTIME_DIR=/run/user/0
 mkdir -p "$XDG_RUNTIME_DIR"
 chmod 0700 "$XDG_RUNTIME_DIR"
 
 # Ensure proper device permissions
 chmod 666 /dev/dri/card0 2>/dev/null || true
 chmod 666 /dev/dri/renderD128 2>/dev/null || true
+chmod 666 /dev/input/* 2>/dev/null || true
