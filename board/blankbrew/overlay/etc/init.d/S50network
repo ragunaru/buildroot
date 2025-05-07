@@ -1,0 +1,27 @@
+#!/bin/sh
+
+case "$1" in
+  start)
+    echo "Starting network interfaces..."
+    # WiFi setup
+    /usr/sbin/wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf
+
+    # Get IP addresses (non-blocking)
+    /sbin/udhcpc -i wlan0 -q -b
+    /sbin/udhcpc -i eth0 -q -b
+    ;;
+  stop)
+    killall udhcpc
+    killall wpa_supplicant
+    ;;
+  restart)
+    $0 stop
+    sleep 1
+    $0 start
+    ;;
+  *)
+    echo "Usage: $0 {start|stop|restart}"
+    exit 1
+esac
+
+exit 0

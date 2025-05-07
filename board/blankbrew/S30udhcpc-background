@@ -1,6 +1,0 @@
-#!/bin/sh
-
-echo "Starting udhcpc on wlan0..."
-/sbin/udhcpc -i wlan0 -q -b
-
-exit 0

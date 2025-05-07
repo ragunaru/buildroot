@@ -1,6 +1,8 @@
-auto lo
-iface lo inet loopback
+# Configure loopback interface (required for proper system operation)
+auto lo                 # 'auto' means this interface will be brought up automatically during boot
+iface lo inet loopback  # Configure as a loopback interface with IPv4
 
-auto eth0
-iface eth0 inet manual
-
+# Configure Ethernet interface
+auto eth0               # Start eth0 automatically at boot
+iface eth0 inet manual  # 'manual' means bring up the interface but don't configure IP
+                        # This allows DHCP client (udhcpc) to handle IP configuration
