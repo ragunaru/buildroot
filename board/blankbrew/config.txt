@@ -14,11 +14,7 @@ kernel=Image
 disable_overscan=1
 
 # GPU memory allocation - important for WPE/COG
-gpu_mem=256
-
-# Enable VC4/V3D driver with full KMS
-dtoverlay=vc4-kms-v3d
-max_framebuffers=2
+gpu_mem_1024
 
 # Force HDMI mode even if no HDMI monitor detected
 hdmi_force_hotplug=1
@@ -28,3 +24,14 @@ hdmi_group=2
 hdmi_mode=87
 hdmi_cvt 1280 800 60 6 0 0 0
 hdmi_drive=1
+
+dtdebug=1
+
+# Display rotates 270°
+# video=DSI-1:1280x800M@60,rotate=270
+
+[all]
+# Enable VC4/V3D driver with full KMS
+dtoverlay=vc4-kms-v3d
+dtoverlay=vc4-kms-dsi-waveshare-panel,10_1_inch,dsi0
+max_framebuffers=2

@@ -35,6 +35,9 @@ BR2_LINUX_KERNEL_DTS_SUPPORT=y
 BR2_LINUX_KERNEL_INTREE_DTS_NAME="broadcom/bcm2712-rpi-5-b broadcom/bcm2712d0-rpi-5-b broadcom/bcm2712-rpi-500"
 BR2_LINUX_KERNEL_NEEDS_HOST_OPENSSL=y
 BR2_ROOTFS_DEVICE_CREATION_DYNAMIC_EUDEV=y
+# BR2_LINUX_KERNEL_CUSTOM_GIT=y
+# BR2_LINUX_KERNEL_CUSTOM_REPO_URL="git@github.com:raspberrypi/linux.git"
+# BR2_LINUX_KERNEL_CUSTOM_REPO_VERSION="rpi-6.12.y"
 
 
 # Tools for creating the SD image
@@ -57,7 +60,12 @@ BR2_PACKAGE_WPEBACKEND_FDO=y
 BR2_PACKAGE_COG_PLATFORM_DRM=y
 BR2_PACKAGE_COG_PLATFORM_FDO=n
 BR2_PACKAGE_EUDEV=y
+# glib might need for mime types?
+# and won't load local pages without? dunno...
+BR2_PACKAGE_SHARED_MIME_INFO=y
 
+# A font cause webkit crashes otherwise? Bruh...
+BR2_PACKAGE_BITSTREAM_VERA=y
 
 # Serving react/vite app locally
 BR2_PACKAGE_LIGHTTPD=y

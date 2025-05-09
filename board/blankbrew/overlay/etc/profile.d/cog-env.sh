@@ -2,6 +2,7 @@
 
 # Set base cog parameters. I fucking hope these work.
 export COG_PLATFORM_NAME=drm
+export EGL_PLATFORM=drm # need to explicitly tell EGL to use drm... dumb.
 
 # Create runtime directory with proper permissions
 export XDG_RUNTIME_DIR=/run/user/0
